@@ -61,16 +61,60 @@ for (let i = 0; i < arrayBuscaminas.length; i++){
     minas[i] = [];
 
     for (let j = 0; j < arrayBuscaminas.length; j++){
-        if (arrayBuscaminas[i][j] = -1) {
-
+        if (arrayBuscaminas[i][j] === -1) {
+            minas[i][j] = -1;
         }
         else {
-
+            minas[i][j] = calcularMinasAdxacentes(arrayBuscaminas, i, j);
         }
     }
 }
 
 console.log(minas);
+
+function calcularMinasAdxacentes(tableiro, x, y) {
+    let minasEncontradas = 0;
+
+    //NORTE
+    if (x > 0) {
+        if (tableiro) {
+            
+        }
+    }
+    //SUR
+    if (x < tableiro.length - 1) {
+        if (tableiro[x + 1][y] === -1) {
+            minasEncontradas++;
+        }
+    }
+    //ESTE
+    if (x) {
+        
+    }
+    //OESTE
+    if (x) {
+        
+    }
+    //NORESTE
+    if (x) {
+        
+    }
+    //NOROESTE
+    if (x) {
+        
+    }
+    //SURESTE
+    if (x) {
+        
+    }
+    //SUROESTE
+    if (x) {
+        
+    }
+
+}
+
+
 
 
 //Crea unha función JavaScript que comprobe se é poxible axendar unha reunión dentro do horario laboral. A estrutura da función e do programa indícanse a continuación:
