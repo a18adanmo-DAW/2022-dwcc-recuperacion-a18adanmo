@@ -256,17 +256,77 @@ console.log("Exercicio STRING - 5");
 let flightsInfo =
     "_Delayed_Departure;scq93766109;bio2133758440;11:25+_Arrival;bio0943384722;scq93766109;11:45+_Delayed_Arrival;svq7439299980;scq93766109;12:05+_Departure;scq93766109;svq2323639855;12:30";
 
-flightsInfo = flightsInfo.split("+");
-console.log(flightsInfo);
-for (let linea of flightsInfo) {
-    let lineaSenBarrasBaixas = linea.replaceAll("_", " ").substring(1, linea.length);
-    let lineaSeparada = lineaSenBarrasBaixas.split(";");
-    for (let parte of lineaSeparada){
-        let lineaFinal = lineaSeparada[0].concat(" ").concat(lineaSeparada[1].substring(0,3).toUpperCase()).concat(" ").concat(lineaSeparada[2].substring(0,3).toUpperCase()).concat(" ").concat(lineaSeparada[3]);
-        console.log(lineaFinal);
+// flightsInfo = flightsInfo.split("+");
+// let arrayFinal = [];
+// for (let linea of flightsInfo) {
+//     let lineaSenBarrasBaixas = linea.replaceAll("_", " ").substring(1, linea.length);
+//     let lineaSeparada = lineaSenBarrasBaixas.split(";");
+//     for (let parte of lineaSeparada){
+//         let lineaFinal = lineaSeparada[0].concat(" ").concat(lineaSeparada[1].substring(0,3).toUpperCase()).concat(" ").concat(lineaSeparada[2].substring(0,3).toUpperCase()).concat(" ").concat(lineaSeparada[3]);
+//         arrayFinal.push(lineaFinal);
+//     }
+// }
+//     console.log(arrayFinal[1]);
+//     console.log(arrayFinal[5]);
+//     console.log(arrayFinal[8]);
+//     console.log(arrayFinal[12]);
+
+
+
+//Garda nun array a lista de froitas: peras, mazás, kiwis, plátanos e mandarinas. Fai os seguintes apartados con splice:
+//a. Elimina as mazás.
+//b. Engade detrás dos plátanos, laranxas e sandía.
+//c. Quita os kiwis e pon no seu lugar cereixas e nésperas.
+
+//Despois de realizar cada operación, mostra por pantalla o array coa lista de froitas,onde os elementos estean separados por unha coma e espazo. Por exemplo, inicialmente o array debe mostrarse como “peras, mazás, kiwis, plátanos, mandarinas”.
+
+console.log("Exercicio ARRAY - 1");
+
+let froitas = ["peras", "mazás", "kiwis", "plátanos", "mandarinas"];
+
+function showFruit(froita) {
+    let cadea = "";
+    for (let f of froita) {
+        cadea = cadea.concat(f).concat(", ");
     }
+    return cadea;
 }
 
+froitas.splice(1, 1);
+console.log(showFruit(froitas));
+froitas.splice(3,"","laranxas", "sandía");
+console.log(showFruit(froitas));
+froitas.splice(1,1,"cereixas","nésperas");
+console.log(showFruit(froitas));
 
+//Fai unha función que ordene as notas dun array pasado como parámetro. Por exemplo, se se pasa o array [4,8,3,10,5] debe devolver [3,4,5,8,10]. Debes utilizar a función sort e pasarlle como parámetro unha función que ti definas que serva para realizar a comparación de elementos.
+console.log("Exercicio ARRAY - 2");
 
+let notas = [4, 8, 3, 10, 5];
 
+function ordenaNotas(a, b) {
+    // if (a < b) {
+    //     return 1;
+    // }
+    // if (a > b) {
+    //     return -1;
+    // }
+    // if (a === b) {
+    //     return 0;
+    // }
+    return a - b;
+}
+
+console.log(notas.sort(ordenaNotas));
+
+//Dado un array cos días da semana, indica se algún comeza por ‘s’. Comproba tamén se todos acaban en ‘s’.
+console.log("Exercicio ARRAY - 3");
+
+let diaSemana = ["lunes", "martes", "mércores", "xoves", "venres", "sábado", "domingo"];
+
+for (let dia of diaSemana) {
+    dia = dia.toUpperCase;
+    if (dia.startsWith("S") === true) {
+        console.log(dia);
+    }
+}
