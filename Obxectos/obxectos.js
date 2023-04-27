@@ -325,8 +325,107 @@ console.log("Exercicio ARRAY - 3");
 let diaSemana = ["lunes", "martes", "mércores", "xoves", "venres", "sábado", "domingo"];
 
 for (let dia of diaSemana) {
-    dia = dia.toUpperCase;
-    if (dia.startsWith("S") === true) {
-        console.log(dia);
+    dia = dia.toUpperCase();
+    if (dia.startsWith("S")){
+        console.log(dia," comeza por S");
+    } else {
+        console.log(dia," non comeza por S");
+    }
+    if (dia.endsWith("S")) {
+        console.log(dia," acaba en S");
+    } else {
+        console.log(dia," non remata en S");
+    }
+}
+
+
+//Crea unha función á que se lle pase un texto e devolva o mesmo texto coa primeira letra de cada palabra en maiúsculas e o resto en minúsculas.
+console.log("Exercicio ARRAY - 4");
+
+const texto4 = "Esta cadea de texto está pensada para javascript";
+
+function camelText(texto) {
+    let textoFinal = "";
+    for (let palabra of texto.split(" ")) {
+
+        let palabraMod = palabra.charAt(0).toUpperCase();
+        palabra = palabra.substring(1);
+        palabraMod = palabraMod.concat(palabra);
+        textoFinal = textoFinal.concat(palabraMod).concat(" ");
+    }
+    return textoFinal;
+}
+
+console.log(camelText(texto4));
+
+//EXERCIO FINAL ARRAYS-OBXECTOS
+console.log("Exercicio ARRAY - FINAL");
+
+const players = [
+[
+"Neuer",
+"Pavard",
+"Martinez",
+"Alaba",
+"Davies",
+"Kimmich",
+"Goretzka",
+"Coman",
+"Muller",
+"Gnabry",
+"Lewandowski",
+],
+[
+"Burki",
+"Schulz",
+"Hummels",
+"Akanji",
+"Hakimi",
+"Weigl",
+"Witsel",
+"Hazard",
+"Brandt",
+"Sancho",
+"Gotze",
+],
+];
+
+//Crea as variables players1, players2 que conteña un array cos xogadores de cada equipo.
+
+let players1 = players[0];
+let players2 = players[1];
+
+console.log(players1);
+console.log(players2);
+
+//O primeiro xogador do array é o porteiro e o resto son xogadores de campo.Crea unha variable chamada gk que conteña o porteiro do primeiro equipo e unha variable de tipo array chamada fieldPlayers que conteña o resto de xogadores do equipo.
+
+let gk, fieldPlayers;
+[gk, ...fieldPlayers] = players1;
+console.log(gk);
+console.log(fieldPlayers);
+
+//Crea un array allPlayers que conteña os xogadores dos dous equipos.
+
+let allPlayers;
+allPlayers = [...players1,...players2];
+console.log(allPlayers);
+
+//d. O primeiro equipo substituiu os xogadores iniciais por 'Thiago', 'Coutinho', 'Periscic'. Crea unha nova varible de tipo array chamada players1Final que conteña os xogadores iniciais e tamén os 3 novos.
+
+let players1Final = ['Thiago', 'Coutinho', 'Perisic', ...players1];
+console.log(players1Final);
+
+
+//Dado un array con nomes de variables formados por dúas palabras separadas por “_”, mostra por consola os nomes das variables en formato camelCase. Por exemplo, se o array de entrada é [“first_name”, “ last_NAME”], deberase mostrar por consola “firtsName” e “lastName”.
+
+let arrVariable = ["first_name", "last_NAME"];
+
+for (let x of arrVariable) {
+    x = x.split("_");
+    console.log(x);
+    for (let y of x) {
+        y = y.toLowerCase();
+        console.log(y);
     }
 }
